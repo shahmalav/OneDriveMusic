@@ -8,15 +8,15 @@ import java.util.List;
  */
 public class Album {
     public String uniqueId;
-    public String titleTrack;
+    public String titleAlbum;
     public String subTitle;
     public String description;
     public String imagePath;
     public List<Track> tracks;
 
-    public Album(String uniqueId, String titleTrack, String subTitle, String description, String imagePath){
+    public Album(String uniqueId, String titleAlbum, String subTitle, String description, String imagePath){
         this.uniqueId = uniqueId;
-        this.titleTrack = titleTrack;
+        this.titleAlbum = titleAlbum;
         this.subTitle = subTitle;
         this.description = description;
         this.imagePath = imagePath;
