@@ -19,24 +19,28 @@ import com.onedrive.sdk.extensions.OneDriveClient;
 public class MainActivity extends AppCompatActivity {
 
     private DataSource dataSource;
+    static IOneDriveClient oneDriveClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dataSource = new DataSource(getOneDriveClient());
+        authenticateOneDrive();
+
     }
 
 
-    public IOneDriveClient getOneDriveClient(){
-        final IOneDriveClient[] oneDriveClient = new IOneDriveClient[1];
-
+    public void authenticateOneDrive(){
         new OneDriveClient.Builder()
                 .fromConfig(AppConfig.oneDriveConfig).loginAndBuildClient(this, new ICallback<IOneDriveClient>() {
+
             @Override
             public void success(IOneDriveClient odc) {
                 Toast.makeText(MainActivity.this, "oneDriveClient success", Toast.LENGTH_LONG).show();
-                oneDriveClient[0] = odc;
+                oneDriveClient = odc;
+                dataSource = new DataSource(oneDriveClient);
+                dataSource.getAlbumsData();
             }
 
             @Override
@@ -44,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "OneDriveClient failed", Toast.LENGTH_LONG).show();
             }
         });
-        return oneDriveClient[0];
     }
 
 }
