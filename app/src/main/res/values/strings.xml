@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OneDriveMusic</string>
+    <string name="Login">LogMeIn!</string>
 </resources>
