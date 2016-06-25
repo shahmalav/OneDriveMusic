@@ -8,17 +8,15 @@ import java.util.List;
  */
 public class Album {
     public String uniqueId;
-    public String titleAlbum;
-    public String subTitle;
-    public String description;
+    public String albumName;
+    public String genre;
     public String imagePath;
     public List<Track> tracks;
 
-    public Album(String uniqueId, String titleAlbum, String subTitle, String description, String imagePath){
+    public Album(String uniqueId, String albumName, String genre, String imagePath){
         this.uniqueId = uniqueId;
-        this.titleAlbum = titleAlbum;
-        this.subTitle = subTitle;
-        this.description = description;
+        this.albumName = albumName;
+        this.genre = genre;
         this.imagePath = imagePath;
         this.tracks = new ArrayList<Track>();
     }

@@ -15,39 +15,25 @@ import com.onedrive.sdk.core.IClientConfig;
 import com.onedrive.sdk.extensions.Drive;
 import com.onedrive.sdk.extensions.IOneDriveClient;
 import com.onedrive.sdk.extensions.OneDriveClient;
+import com.shahmalav.androidprojects.onedrivemusic.Callbacks.OneDriveClientCallback;
 
 public class MainActivity extends AppCompatActivity {
 
     private DataSource dataSource;
-    static IOneDriveClient oneDriveClient;
-
+    OneDriveClientCallback oneDriveClientCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        oneDriveClientCallback = new OneDriveClientCallback();
         authenticateOneDrive();
-
     }
 
 
     public void authenticateOneDrive(){
         new OneDriveClient.Builder()
-                .fromConfig(AppConfig.oneDriveConfig).loginAndBuildClient(this, new ICallback<IOneDriveClient>() {
-
-            @Override
-            public void success(IOneDriveClient odc) {
-                Toast.makeText(MainActivity.this, "oneDriveClient success", Toast.LENGTH_LONG).show();
-                oneDriveClient = odc;
-                dataSource = new DataSource(oneDriveClient);
-                dataSource.getAlbumsData();
-            }
-
-            @Override
-            public void failure(ClientException ex) {
-                Toast.makeText(MainActivity.this, "OneDriveClient failed", Toast.LENGTH_LONG).show();
-            }
-        });
+                .fromConfig(AppConfig.oneDriveConfig).loginAndBuildClient(this, oneDriveClientCallback);
     }
 
 }

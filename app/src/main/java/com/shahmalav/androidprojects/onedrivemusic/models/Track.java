@@ -5,19 +5,17 @@ package com.shahmalav.androidprojects.onedrivemusic.models;
  */
 public class Track {
     public String uniqueId;
-    public String titleTrack;
-    public String subTitle;
-    public String description;
+    public String title;
+    public String albumName;
+    public String genre;
     public String imagePath;
-    public String content;
 
-    public Track(String uniqueId, String titleTrack, String subTitle, String description, String imagePath, String content){
+    public Track(String uniqueId, String title, String albumName, String genre, String imagePath){
         this.uniqueId = uniqueId;
-        this.titleTrack = titleTrack;
-        this.subTitle = subTitle;
-        this.description = description;
+        this.title= title;
+        this.albumName = albumName;
+        this.genre = genre;
         this.imagePath = imagePath;
-        this.content = content;
     }
 
 }
