@@ -1,42 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <!-- Album Image -->
     <ImageView
+        android:id="@+id/image_path"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_gravity="left"
-        android:layout_margin="5dp" />
+        android:layout_margin="5dp"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
         <!-- Album Name -->
         <TextView
+            android:id="@+id/album_title"
+            android:text="dummy title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kabhi Jo Badal Barse"/>
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/image_path"
+            android:layout_marginStart="21dp" />
 
         <!-- Album Genre -->
         <TextView
+            android:id="@+id/album_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pop Rock"
             android:gravity="bottom|left"
-            android:layout_marginTop="10dp" />
-
-    </LinearLayout>
+            android:text="dummy genre"
+            android:layout_alignBottom="@+id/image_path"
+            android:layout_alignStart="@+id/album_title"
+            android:layout_marginBottom="19dp" />
 
     <!-- Album # of Tracks -->
     <TextView
+        android:id="@+id/album_tracks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:text="11 Tracks" />
+        android:text="11 Tracks"
+        android:layout_marginEnd="36dp"
+        android:layout_below="@+id/album_title"
+        android:layout_alignParentEnd="true" />
 
-</LinearLayout>
+</RelativeLayout>

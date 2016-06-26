@@ -20,7 +20,7 @@ public class OneDriveClientCallback implements ICallback<IOneDriveClient> {
     public void success(IOneDriveClient oneDriveClient) {
         this.oneDriveClient = oneDriveClient;
         dataSource = new DataSource();
-        dataSource.getAlbumsData(this.oneDriveClient);
+    //    dataSource.getAlbumsData(this.oneDriveClient);
 
     }
 

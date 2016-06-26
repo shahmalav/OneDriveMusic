@@ -21,7 +21,7 @@ public class DataSource {
     }
 
     //refactor to asyncTask
-    public List<Album> getAlbumsData(IOneDriveClient oneDriveClient) {
+    public List<Album> getAlbumsData() {
 
         String imageUrl = "";
 
